@@ -3,7 +3,7 @@
  */
 var http = require("http");
 
-var router = [];
+var router = [];  //保存路由
 
 router.push(
     {
@@ -15,7 +15,7 @@ router.push(
     },
     {
         path: '/',
-        fu: function (req, res) {
+        fn: function (req, res) {
             res.writeHead(200, {'Content-type': 'text/plain'});
             res.end('Hello');
         }
@@ -23,8 +23,15 @@ router.push(
 );
 
 var server = http.createServer(function (req, res) {
-    for (var i = 0; i <router.length; i++){
-        //
+    console.log(req.url);
+    for (var i = 1; i <router.length; i++){ //i=1因为第一个是所有路由匹配完之后没有匹配成功，取第一个路由来返回404
+        if(req.url == router[i].path){ //匹配路由
+            return router[i].fn(req, res);
+        }
     }
+
+    return router[0].fn(req, res);
 });
+
+server.listen(3000);
 
