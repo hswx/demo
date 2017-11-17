@@ -1,5 +1,6 @@
 /**
  * Created by wangpeng on 2017/11/17.
+ * 普通路由的封装
  */
 var http = require("http");
 
