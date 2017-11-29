@@ -34,7 +34,7 @@ Stack.prototype = {
     }
 }
 
-function numBase(num,base) { // 进制转换，10进制转2进制
+function numBase(num,base) { // 栈的应用，进制转换，10进制转2进制
     var stack= new Stack();
     while (num>0){
         var a= Math.floor(num/base);
