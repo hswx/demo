@@ -33,7 +33,7 @@ LinkedList.prototype = {
         this.length++;
     },
     insert: function (index, element) {
-        if(index >= 0 && Number.isInteger(index) && index < this.length){
+        if(index >= 0 && index < this.length && Number.isInteger(index)){
             var node = new Node(element);
             var current = this.head;
             if(index === 0){
@@ -61,15 +61,67 @@ LinkedList.prototype = {
             current = current.next;
         }
         return res.toString();
+    },
+    removeAt: function (index) {
+        if(index >= 0 && index < this.length && Number.isInteger(index)){
+            var current = this.head;
+            var prev = null;
+            if (index === 0){
+                this.head = this.head.next;
+            }else {
+                while (index--){
+                    prev = current;
+                    current = current.next;
+                }
+                prev.next = current.next;
+            }
+            this.length--;
+            return current.element;
+        }else {
+            return null;
+        }
+    },
+    remove: function () {
+        // return this.removeAt(this.length-1); // 复用removeAt方法来删除元素
+        if (this.head) {
+            var current = this.head;
+            var prev = null;
+            while (current.next){
+                prev = current;
+                current = current.next;
+            }
+            if(prev){
+                prev.next = null;
+            }else{
+                this.head = null
+            }
+            this.length--;
+            return current.element;
+        }
+        return null;
+    },
+    indexOf: function (element) {
+        var current = this.head;
+        var index = -1;
+        while (current){
+            index++;
+            if (current.element === element){
+                return index;
+            }
+            current = current.next;
+        }
+        return -1;
+    },
+    size: function () {
+        return this.length;
+    },
+    isEmpty: function () {
+        return this.length === 0;
     }
 }
 
-var ll=new LinkedList();
-ll.append('a');
-ll.append('b');
-ll.append('c');
-ll.append('d');
-ll.insert(1,'d');
-console.log(ll.toString())
+
+
+
 
  
