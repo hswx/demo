@@ -33,7 +33,7 @@ LinkedList.prototype = {
         this.length++;
     },
     insert: function (index, element) {
-        if(index >= 0 && index < this.length && Number.isInteger(index)){
+        if(index >= 0 && index <= this.length && Number.isInteger(index)){
             var node = new Node(element);
             var current = this.head;
             if(index === 0){
