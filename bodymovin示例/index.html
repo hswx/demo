@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bodymovin</title>
+</head>
+<body>
+<div id="el" style="height: 300px;width: 500px"></div>
+<script src = "./lottie-web.5.1.2.js"> </script>// 采用5.1.2版本的bodymovin
+<script>
+    var el= document.getElementById('el')
+    var animData = {
+        container: el,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'data.json' // 需要服务器环境，推荐http-server快速开启服务器，否则报错，开启方式：npm install -g http-server && http-server，然后访问http://localhost:8080
+    };
+    bodymovin.loadAnimation(animData);
+
+</script>
+</body>
+</html>
