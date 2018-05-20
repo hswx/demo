@@ -1,10 +1,11 @@
 'use strict'
-const path = require('path')
-const utils = require('./utils')
-const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
+const path = require('path') // node文件路径处理工具
+const utils = require('./utils') // ./utils.js中相关配置
+const config = require('../config') // ../config/index.js中相关配置
+const vueLoaderConfig = require('./vue-loader.conf') // ./vue-loader.conf.js中相关配置
 
 function resolve (dir) {
+  // 获取文件在系统中的绝对路径
   return path.join(__dirname, '..', dir)
 }
 
