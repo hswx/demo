@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    let image = new Image()
+    image.src = './../testImg.jpg'
+    image.onload = function() {
+        image.crossOrigin = "Anonymous" // 解决canvas绘制图片时跨域的问题，canvas引用的图片不能跨域
+        let canvas = document.createElement('canvas')
+        canvas.width = image.width
+        canvas.height = image.height
+        let ctx = canvas.getContext('2d')
+        ctx.drawImage(image, 0, 0, image.width, image.height)
+        let uri = canvas.toDataURL('image/'+image.src.substring(image.src.lastIndexOf(".")+1).toLowerCase())
+        console.log(uri)
+    }
+</script>
+</body>
+</html>
