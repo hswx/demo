@@ -14,7 +14,7 @@
         canvas.height = image.height
         let ctx = canvas.getContext('2d')
         ctx.drawImage(image, 0, 0, image.width, image.height)
-        let uri = canvas.toDataURL('image/'+image.src.substring(image.src.lastIndexOf(".")+1).toLowerCase())
+        let uri = canvas.toDataURL('image/jpeg')
         console.log(uri)
     }
 </script>

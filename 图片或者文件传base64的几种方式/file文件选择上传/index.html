@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<input type="file" id="file">
+<button onclick="upload()">upload</button>
+<script>
+    function upload() {
+        let fileReader = new FileReader()
+        let file = document.getElementById('file').files[0]
+        if(file) {
+            fileReader.readAsDataURL(file)
+            fileReader.onload = function (e) {
+                console.log(fileReader.result)
+            }
+        }
+    }
+</script>
+</body>
+</html>
