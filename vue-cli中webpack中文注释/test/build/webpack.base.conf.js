@@ -9,14 +9,20 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
+// 使用eslint进行语法检测
 const createLintingRule = () => ({
   test: /\.(js|vue)$/,
+  // 检测以js和vue为后缀的文件
   loader: 'eslint-loader',
   enforce: 'pre',
+  // 在babel-loader等其它loader对源码进行编译修改前进行检查
   include: [resolve('src'), resolve('test')],
+  // 指定检查./../src和./../test目录下的js和vue文件
   options: {
     formatter: require('eslint-friendly-formatter'),
+    // 编译后错误报告格式
     emitWarning: !config.dev.showEslintErrorsInOverlay
+    // 将eslint报错显示为warning，true时会忽略eslint错误继续编译代码
   }
 })
 
