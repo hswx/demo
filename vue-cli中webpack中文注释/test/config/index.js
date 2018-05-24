@@ -24,7 +24,7 @@ module.exports = {
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
-    useEslint: true,
+    useEslint: true, // 开发环境是否使用eslint检查代码
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
@@ -65,13 +65,20 @@ module.exports = {
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
-    productionGzip: false,
+    // 默认关闭gzip因为许多流行的静态主机已经为你gzip压缩了
+    // 所有的静态资源，在你设置这个参数为true前，
+    // 你需要安装compression-webpack-plugin
+    productionGzip: false, // 生产环境是否开启gzip压缩
     productionGzipExtensions: ['js', 'css'],
+    // 需要进行gzip压缩的文件扩展名
 
     // Run the build command with an extra argument to
     // View the bundle analyzer report after build finishes:
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
+    // 运行带有额外参数的npm run build --report命令，
+    // 以在构建完成后查看分析报告
     bundleAnalyzerReport: process.env.npm_config_report
+    // 用于分析页面中加载的资源的依赖关系的工具
   }
 }

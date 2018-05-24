@@ -28,12 +28,14 @@ const createLintingRule = () => ({
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
+  // 指定解析入口起点(entry point)和 loader的基础目录，绝对路径，
+  // 这里采用上层目录
   entry: {
-    app: './src/main.js'
+    app: './src/main.js' // 入口文件路径
   },
   output: {
     path: config.build.assetsRoot,
-    filename: '[name].js',
+    filename: '[name].js', // 输出的js文件名
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
