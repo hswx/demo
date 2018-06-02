@@ -87,6 +87,7 @@ exports.cssLoaders = function (options) {
 
 // Generate loaders for standalone style files (outside of .vue)
 exports.styleLoaders = function (options) {
+  // 处理import方式导入的样式文件的打包
   const output = []
   const loaders = exports.cssLoaders(options)
 
@@ -97,12 +98,14 @@ exports.styleLoaders = function (options) {
       use: loader
     })
   }
-
+  // 输出一个数组，保存了对不同后缀名的样式文件采用不同的loader
   return output
 }
 
 exports.createNotifierCallback = () => {
   const notifier = require('node-notifier')
+  // node-notifier是一个系统级通知插件
+  // 可以用系统原生方法推送消息
 
   return (severity, errors) => {
     if (severity !== 'error') return
@@ -111,6 +114,7 @@ exports.createNotifierCallback = () => {
     const filename = error.file && error.file.split('!').pop()
 
     notifier.notify({
+      // 推送信息
       title: packageConfig.name,
       message: severity + ': ' + error.name,
       subtitle: filename || '',
