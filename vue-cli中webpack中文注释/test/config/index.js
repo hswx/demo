@@ -11,7 +11,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     // 编译后存放静态资源的二级目录
     assetsPublicPath: '/',
-    // 配置最后生产环境静态资源所在的根目录
+    // 配置最后开发/生产环境发布时静态资源所在的根目录
     // 具体用法看本文下面的build中的介绍
     proxyTable: {},
     //解决开发环境中的跨域问题
